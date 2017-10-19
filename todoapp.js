@@ -20,3 +20,20 @@ todos[0] = 'new todo' // reassignment
 
 // - it should have a way to delete todos
 todos.splice(0, 1)
+
+// v2
+// functions
+// requirements
+// - it should have a way to display todos
+function displayTodos(todos) {
+  console.log('My todos:', todos);
+}
+// - it should have a way to add todos
+function addTodo(todo) {
+  todos.push(todo)
+}
+// - it should have a way to change a todo
+function changeTodo(position, newTodo) {
+  todos[position] = newTodo
+}
+// - it should have a way to delete todos
