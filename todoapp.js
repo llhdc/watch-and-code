@@ -44,21 +44,21 @@ function deleteTodo(position) {
   displayTodos();
 }
 
-v3
-objects
+// v3
+// objects
 
-let myMac = {
-  operatingSystem: 'mac',
-  screenSize: '15 inches',
-  purchaseYear: 2011
-}
-
-let leonard = {
-  name: 'Leonard',
-  sayName: function() {       // functions on objects are methods;
-    console.log(this.name);
-  }
-}
+// let myMac = {
+//   operatingSystem: 'mac',
+//   screenSize: '15 inches',
+//   purchaseYear: 2011
+// }
+//
+// let leonard = {
+//   name: 'Leonard',
+//   sayName: function() {       // functions on objects are methods;
+//     console.log(this.name);
+//   }
+// }
 
 //requirements
 // it should store the todos array on an object
@@ -68,6 +68,28 @@ let leonard = {
 // it should have a deleteTodo method
 
 var todoList = {
+  todos: ['item 1', 'item 2', 'item 3'],
+  displayTodos: function() {
+    console.log('My todos:', this.todos);
+  },
+  addTodo: function() {
+    this.todos.push(todo);
+    this.displayTodos();
+  },
+  changeTodo: function(position, newValue) {
+    this.todos[position] = newValue;
+    this.displayTodos();
+  },
+  deleteTodo: function(position) {
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  }
+};
+
+// v4
+// booleans
+
+let todoList = {
   todos: [],
   displayTodos: function() {
     console.log('My todos:', this.todos);
