@@ -68,12 +68,15 @@ let leonard = {
 // it should have a deleteTodo method
 
 var todoList = {
-  todos: ['item 1', 'item 2', 'item 3'],
+  todos: [],
   displayTodos: function() {
     console.log('My todos:', this.todos);
   },
-  addTodo: function() {
-    this.todos.push(todo);
+  addTodo: function(todoText) {
+    this.todos.push({
+      todoText: todoText,
+      completed: false // new todo will start out as incomplete
+    });
     this.displayTodos();
   },
   changeTodo: function(position, newValue) {
