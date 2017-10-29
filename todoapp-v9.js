@@ -101,5 +101,12 @@ let handlers = {
 };
 
 let view = {
-  
-}
+  displayTodos: function() {
+    let todosUl = document.querySelector('ul');
+    todosUl.innerHTML = '';
+    for (let i = 0; i < todoList.todos.length; i++) {
+      let todoLi = document.createElement('li');
+      todosUl.appendChild(todoLi);
+    }
+  }
+};
