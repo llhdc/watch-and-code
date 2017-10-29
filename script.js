@@ -80,10 +80,8 @@ let handlers = {
     changeTodoTextInput.value = '';
     view.displayTodos();
   },
-  deleteTodo: function() {
-    let deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-    deleteTodoPositionInput.value = '';
+  deleteTodo: function(position) {
+    todoList.deleteTodo(position);
     view.displayTodos();
   },
   toggleCompleted: function() {
@@ -126,10 +124,19 @@ let view = {
     deleteButton.className = 'deleteButton';
     return deleteButton;
   }
+},
+  setUpEventListeners: function() {
+    let todosUl = document.querySelector('ul');
+    todosUl.addEventListener('click', function(event) {
+      // get the element that was clicked on.
+      let elementClicked = event.target;
+      // check if elementClicked is a delete button.
+      if (elementClicked.className === 'deleteButton') {
+        // run handlers.deleteTodo().
+        handlers.deleteTodo(parseInt(elementClicked.parentNode.id)); // convert id from string to number to work in deleteTodo method
+      }
+    });
+  }
 };
 
-let todosUl = document.querySelector('ul');
-
-todosUl.addEventListener('click', function(event) {
-  console.log(event.target.parentNode.id);
-});
+view.setUpEventListeners();
