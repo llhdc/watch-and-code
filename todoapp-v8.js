@@ -1,3 +1,12 @@
+/*
+v8
+requirements
+- it should have working controls for .addTodo
+- it should have working controls for .changeTodo
+- it should have working controls for .deleteTodo
+- it should have working controls for .toggleCompleted
+*/
+
 let todoList = {
   todos: [],
   displayTodos: function() {
@@ -7,9 +16,9 @@ let todoList = {
       console.log('My todos:');
       for (let i = 0; i < this.todos.length; i++) {
         if (this.todos[i].completed === true) {
-          console.log('[x] ' + this.todos[i].todoText);
+          console.log('[x] ', this.todos[i].todoText);
         } else {
-          console.log('[ ] ' + this.todos[i].todoText);
+          console.log('[ ] ', this.todos[i].todoText);
         }
       }
     }
@@ -61,10 +70,31 @@ let todoList = {
   }
 };
 
-
 let handlers = {
   displayTodos: function() {
     todoList.displayTodos();
+  },
+  addTodo: function() {
+    let addTodoTextInput = document.getElementById('addTodoTextInput');
+    todoList.addTodo(addTodoTextInput.value);
+    addTodoTextInput.value = '';
+  },
+  changeTodo: function() {
+    let changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+    let changeTodoTextInput = document.getElementById('changeTodoTextInput');
+    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+    changeTodoPositionInput.value = '';
+    changeTodoTextInput.value = '';
+  },
+  deleteTodo: function() {
+    let deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+    deleteTodoPositionInput.value = '';
+  },
+  toggleCompleted: function() {
+    let toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+    todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    toggleCompletedPositionInput.value = '';
   },
   toggleAll: function(){
     todoList.toggleAll();
