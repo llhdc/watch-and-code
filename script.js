@@ -1,29 +1,12 @@
 /*
-v10
+v11
 requirements
-- there should be a way to create delete buttons
-- there should be a delete button for each todo
-- each li should have an id that has the todo position
-- delete buttons should have access to the todo li
-- clicking delete should update todoList.todos and the DOM
+- todoList.toggleAll should use forEach
+- view.displayTodos should use forEach
 */
 
 let todoList = {
   todos: [],
-  displayTodos: function() {
-    if (this.todos.length === 0) {
-      console.log('Your todo list is empty!');
-    } else {
-      console.log('My todos:');
-      for (let i = 0; i < this.todos.length; i++) {
-        if (this.todos[i].completed === true) {
-          console.log('[x] ', this.todos[i].todoText);
-        } else {
-          console.log('[ ] ', this.todos[i].todoText);
-        }
-      }
-    }
-  },
   addTodo: function(todoText) {
     this.todos.push({
       todoText: todoText,
